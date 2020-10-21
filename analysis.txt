@@ -1,0 +1,183 @@
+Anita Yakobchuk analysis
+
+After implementing the macros and including them in the C and C++ files, I 
+ran them with data.txt to time the data inputs and calculations. I noticed 
+that the C file was faster than the C++ file. 
+
+1) C code with NO MOVE_FOPEN
+move fopen to top disabled 
+Elasped time: 1.800000e+00
+Repeat timer: 1.800000e-02
+Elasped time: 1.300000e-01
+Repeat timer: 6.500000e-06
+500000 data lines processed, the least square line is : Y = 1.26393 * X + 0.823035
+
+move fopen to top disabled 
+Elasped time: 1.800000e+00
+Repeat timer: 1.800000e-02
+Elasped time: 1.400000e-01
+Repeat timer: 7.000000e-06
+500000 data lines processed, the least square line is : Y = 1.26393 * X + 0.823035
+
+move fopen to top disabled 
+Elasped time: 1.780000e+00
+Repeat timer: 1.780000e-02
+Elasped time: 1.400000e-01
+Repeat timer: 7.000000e-06
+500000 data lines processed, the least square line is : Y = 1.26393 * X + 0.823035
+
+AVERAGES
+Data elapsed timer: 1.79
+Data Repeat timer: 1.7900e-02
+Calculation elapsed timer: 1.3600e-01
+Calculations Repeat timer: 6.8300e-06
+
+2) C code with NO MOVE_FOPEN and 2X the loop count of #1
+move fopen to top disabled 
+Elasped time: 3.500000e+00
+Repeat timer: 1.750000e-02
+Elasped time: 2.800000e-01
+Repeat timer: 7.000000e-06
+1000000 data lines processed, the least square line is : Y = 1.26393 * X + 0.823035
+
+move fopen to top disabled 
+Elasped time: 3.500000e+00
+Repeat timer: 1.750000e-02
+Elasped time: 2.800000e-01
+Repeat timer: 7.000000e-06
+1000000 data lines processed, the least square line is : Y = 1.26393 * X + 0.823035
+
+move fopen to top disabled 
+Elasped time: 3.520000e+00
+Repeat timer: 1.760000e-02
+Elasped time: 2.800000e-01
+Repeat timer: 7.000000e-06
+1000000 data lines processed, the least square line is : Y = 1.26393 * X + 0.823035
+
+AVERAGES
+Data elapsed time: 3.5020
+Data Repeat timer: 1.7500e-02
+Calculations elapsed timer: 2.8000e-01
+Calculations Repeat timer: 7.0000e-06
+
+Compared to the results in #1, the results in #2 took longer to time.
+The elapsed time was approximately double and the repeat timer was only 
+slightly greater.
+
+
+3) C code with MOVE_FOPEN option
+
+move fopen to top enabled 
+Elasped time: 2.000000e-02
+Repeat timer: 2.000000e-04
+Elasped time: 0.000000e+00
+Repeat timer: 0.000000e+00
+5000 data lines processed, the least square line is : Y = -nan * X + -nani
+move fopen to top enabled 
+Elasped time: 2.000000e-02
+Repeat timer: 2.000000e-04
+Elasped time: 0.000000e+00
+Repeat timer: 0.000000e+00
+5000 data lines processed, the least square line is : Y = -nan * X + -nan
+move fopen to top enabled 
+Elasped time: 2.000000e-02
+Repeat timer: 2.000000e-04
+Elasped time: 0.000000e+00
+Repeat timer: 0.000000e+00
+5000 data lines processed, the least square line is : Y = -nan * X + -nan
+
+Averages:
+Data elapsed time: 2.0000e-02
+Data repeat timer: 2.0000e-04
+Calculations elapsed time: 0.0000
+Calculations repeat timer: 0.0000
+
+
+4) C code with MOVE_FOPEN and 2X the loop count of #3
+move fopen to top enabled 
+Elasped time: 2.000000e-02
+Repeat timer: 1.000000e-04
+Elasped time: 0.000000e+00
+Repeat timer: 0.000000e+00
+5000 data lines processed, the least square line is : Y = -nan * X + -nan
+move fopen to top enabled 
+Elasped time: 2.000000e-02
+Repeat timer: 1.000000e-04
+Elasped time: 0.000000e+00
+Repeat timer: 0.000000e+00
+5000 data lines processed, the least square line is : Y = -nan * X + -nan
+move fopen to top enabled 
+Elasped time: 2.000000e-02
+Repeat timer: 1.000000e-04
+Elasped time: 0.000000e+00
+Repeat timer: 0.000000e+00
+5000 data lines processed, the least square line is : Y = -nan * X + -nan
+
+Averages:
+Data elapsed time: 2.0000e-02
+Data repeat timer: 1.0000e-04
+Calculations elapsed time: 0.0000
+Calculations repeat timer: 0.0000
+
+Compared to the time in #3, the data repeat timer was 2X slower and the
+calculations timer was 0 in both. The least square line showes nan which 
+means not a number.
+
+
+5) C++ code
+Elasped time: 5.200000e-01
+Repeat timer: 5.200000e-03
+Elasped time: 6.350000e+00
+Repeat timer: 3.175000e-04
+500100 data lines processed, the best least squares line is: Y = 1.26393 * X + 0.823035
+Elasped time: 5.200000e-01
+Repeat timer: 5.200000e-03
+Elasped time: 6.360000e+00
+Repeat timer: 3.180000e-04
+500100 data lines processed, the best least squares line is: Y = 1.26393 * X + 0.823035
+Elasped time: 5.100000e-01
+Repeat timer: 5.100000e-03
+Elasped time: 6.370000e+00
+Repeat timer: 3.185000e-04
+500100 data lines processed, the best least squares line is: Y = 1.26393 * X + 0.823035
+
+Averages: 
+Data elapsed timer: 5.1600e-01
+Data repeat timer: 5.16000e-03
+Calculations elapsed timer: 6.3600
+Calculations repeat timer: 3.17800e-04
+
+These results are slower than the results from #1 because the data repeat 
+time was an average of 1.79e-02 and the calculations timer was an average of
+6.83e-06 which are less than the averages of the C++ program. The elapsed 
+timer in the C code ran faster. 
+Basically the C code ran faster than the C++ code which was expected.
+
+6) C++ code with 2X the loop count of #5
+Elasped time: 9.300000e-01
+Repeat timer: 4.650000e-03
+Elasped time: 1.293000e+01
+Repeat timer: 3.232500e-04
+1000200 data lines processed, the best least squares line is: Y = 1.26393 * X + 0.823035
+Elasped time: 9.300000e-01
+Repeat timer: 4.650000e-03
+Elasped time: 1.294000e+01
+Repeat timer: 3.235000e-04
+1000200 data lines processed, the best least squares line is: Y = 1.26393 * X + 0.823035
+Elasped time: 9.300000e-01
+Repeat timer: 4.650000e-03
+Elasped time: 1.384000e+01
+Repeat timer: 3.460000e-04
+1000200 data lines processed, the best least squares line is: Y = 1.26393 * X + 0.823035
+
+Averages:
+Data elapsed timer: 9.3000e-01
+Data repeat timer: 4.6500e-03
+Calculations elapsed timer: 1.3233e+01
+Calculations repeat timer: 3.3090e-04
+
+With twice the loop count, the C++ code ran at almost the same speed just 
+slightly slower. There wasn't much of a difference in the repeat times. For
+the elapsed timers, it took almsot twice the time for data and the
+calculations elapsed time was also nearly twice as long. 
+

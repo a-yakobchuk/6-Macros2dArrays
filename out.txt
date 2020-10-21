@@ -1,0 +1,11 @@
+move fopen to top disabled 
+Elasped time: 3.490000e+00
+Repeat timer: 1.745000e-02
+Elasped time: 2.700000e-01
+Repeat timer: 6.750000e-06
+1000000 data lines processed, the least square line is : Y = 1.26393 * X + 0.823035
+Elasped time: 8.200000e-01
+Repeat timer: 4.100000e-03
+Elasped time: 1.296000e+01
+Repeat timer: 3.240000e-04
+1000200 data lines processed, the best least squares line is: Y = 1.26393 * X + 0.823035
